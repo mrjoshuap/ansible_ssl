@@ -1,0 +1,7 @@
+---
+
+- name: SSL / Validate
+  hosts: localhost
+  tasks:
+    debug:
+      msg: "This should validate certificate fields"

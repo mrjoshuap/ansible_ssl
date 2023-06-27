@@ -1,0 +1,7 @@
+---
+
+- name: SSL / Deploy
+  hosts: localhost
+  tasks:
+    debug:
+      msg: "This should deploy a certificate"

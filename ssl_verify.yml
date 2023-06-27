@@ -1,0 +1,7 @@
+---
+
+- name: SSL / Verify
+  hosts: localhost
+  tasks:
+    debug:
+      msg: "This should verify identified certificates expiration dates."

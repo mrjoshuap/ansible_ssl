@@ -1,0 +1,7 @@
+---
+
+- name: SSL / Report
+  hosts: localhost
+  tasks:
+    debug:
+      msg: "This should report on all identified certificates"
