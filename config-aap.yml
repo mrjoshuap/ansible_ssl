@@ -7,15 +7,15 @@
       # common options
       state: "present"
       organization: "Default"
-      inventory: "Workshop Inventory"
+      inventory: "Demo Inventory"
       project:
         name: "SSL"
         scm_url: "https://github.com/mrjoshuap/ansible_ssl.git"
         scm_branch: "main"
         scm_update_on_launch: true
       credentials:
-        - "Workshop Credential"
-      controller_config_file: "~/tower_cli.cfg"
+        - "Demo Credential"
+      controller_config_file: "./tower_cli.cfg"
 
       # state specific options
       create:
@@ -78,7 +78,7 @@
   tasks:
 
     - name: Create project for SSL Management
-      awx.awx.project:
+      ansible.controller.project:
         name: "{{ aap_config.project.name }}"
         organization: "{{ aap_config.organization }}"
         scm_type: git
@@ -92,15 +92,14 @@
     # CREATE
     ###
     - name: Create Certificate Signing Requests
-      awx.awx.job_template:
+      ansible.controller.job_template:
         name: "SSL / Create"
         job_type: "run"
         organization: "{{ aap_config.organization }}"
         inventory: "{{ aap_config.inventory }}"
         project: "{{ aap_config.project.name }}"
         playbook: "{{ aap_config.create.playbook }}"
-        credentials:
-          - "{{ aap_config.credentials }}"
+        credentials: "{{ aap_config.credentials }}"
         state: "{{ aap_config.state }}"
         controller_config_file: "{{ aap_config.controller_config_file }}"
 
@@ -108,7 +107,7 @@
     # DEPLOY
     ###
     - name: Deploy SSL Certificates
-      awx.awx.job_template:
+      ansible.controller.job_template:
         name: "SSL / Deploy / {{ item }}"
         job_type: "run"
         organization: "{{ aap_config.organization }}"
@@ -125,7 +124,7 @@
     # QUERY
     ###
     - name: Query SSL Certificates
-      awx.awx.job_template:
+      ansible.controller.job_template:
         name: "SSL / Query / {{ item }}"
         job_type: "run"
         organization: "{{ aap_config.organization }}"
@@ -142,7 +141,7 @@
     # REPORT
     ###
     - name: Create SSL Certificate Reporting Job Templates
-      awx.awx.job_template:
+      ansible.controller.job_template:
         name: "SSL / Report / {{ item }}"
         job_type: "run"
         organization: "{{ aap_config.organization }}"
@@ -159,7 +158,7 @@
     # SIGN
     ###
     - name: Sign SSL Certificates
-      awx.awx.job_template:
+      ansible.controller.job_template:
         name: "SSL / Sign / {{ item }}"
         job_type: "run"
         organization: "{{ aap_config.organization }}"
@@ -176,7 +175,7 @@
     # VALIDATE
     ###
     - name: Validate SSL Certificates
-      awx.awx.job_template:
+      ansible.controller.job_template:
         name: "SSL / Validate"
         job_type: "run"
         organization: "{{ aap_config.organization }}"
@@ -192,7 +191,7 @@
     # VERIFY
     ###
     - name: Verify SSL Certificates
-      awx.awx.job_template:
+      ansible.controller.job_template:
         name: "Verify SSL Certificate"
         job_type: "run"
         organization: "{{ aap_config.organization }}"

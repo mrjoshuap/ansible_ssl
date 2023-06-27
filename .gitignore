@@ -1,3 +1,7 @@
 *-artifact-*.json
 ansible-navigator.log
 .vscode/settings.json
+collections/*
+ansible.cfg
+ansible-navigator.yml
+tower_cli.cfg
