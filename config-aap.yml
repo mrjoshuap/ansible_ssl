@@ -114,8 +114,7 @@
         inventory: "{{ aap_config.inventory }}"
         project: "{{ aap_config.project.name }}"
         playbook: "{{ aap_config.deploy.playbook }}"
-        credentials:
-          - "{{ aap_config.credentials }}"
+        credentials: "{{ aap_config.credentials }}"
         state: "{{ aap_config.state }}"
         controller_config_file: "{{ aap_config.controller_config_file }}"
       loop: "{{ aap_config.deploy.destinations }}"
@@ -131,8 +130,7 @@
         inventory: "{{ aap_config.inventory }}"
         project: "{{ aap_config.project.name }}"
         playbook: "{{ aap_config.query.playbook }}"
-        credentials:
-          - "{{ aap_config.credentials }}"
+        credentials: "{{ aap_config.credentials }}"
         state: "{{ aap_config.state }}"
         controller_config_file: "{{ aap_config.controller_config_file }}"
       loop: "{{ aap_config.query.sources }}"
@@ -148,8 +146,7 @@
         inventory: "{{ aap_config.inventory }}"
         project: "{{ aap_config.project.name }}"
         playbook: "{{ aap_config.report.playbook }}"
-        credentials:
-          - "{{ aap_config.credentials }}"
+        credentials: "{{ aap_config.credentials }}"
         state: "{{ aap_config.state }}"
         controller_config_file: "{{ aap_config.controller_config_file }}"
       loop: "{{ aap_config.report.sources }}"
@@ -165,8 +162,7 @@
         inventory: "{{ aap_config.inventory }}"
         project: "{{ aap_config.project.name }}"
         playbook: "{{ aap_config.sign.playbook }}"
-        credentials:
-          - "{{ aap_config.credentials }}"
+        credentials: "{{ aap_config.credentials }}"
         state: "{{ aap_config.state }}"
         controller_config_file: "{{ aap_config.controller_config_file }}"
       loop: "{{ aap_config.sign.sources }}"
@@ -182,8 +178,7 @@
         inventory: "{{ aap_config.inventory }}"
         project: "{{ aap_config.project.name }}"
         playbook: "{{ aap_config.validate.playbook }}"
-        credentials:
-          - "{{ aap_config.credentials }}"
+        credentials: "{{ aap_config.credentials }}"
         state: "{{ aap_config.state }}"
         controller_config_file: "{{ aap_config.controller_config_file }}"
 
@@ -198,7 +193,6 @@
         inventory: "{{ aap_config.inventory }}"
         project: "{{ aap_config.project.name }}"
         playbook: "{{ aap_config.verify.playbook }}"
-        credentials:
-          - "{{ aap_config.credentials }}"
+        credentials: "{{ aap_config.credentials }}"
         state: "{{ aap_config.state }}"
         controller_config_file: "{{ aap_config.controller_config_file }}"
