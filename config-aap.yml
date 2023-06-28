@@ -9,214 +9,214 @@
 
   tasks:
 
-    # ###
-    # # CREATE PROJECT
-    # ###
-    # - name: "Create / Project / {{ aap_config.project.name }}"
-    #   ansible.controller.project:
-    #     name: "{{ aap_config.project.name }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     scm_type: "{{ aap_config.project.scm_type }}"
-    #     scm_url: "{{ aap_config.project.scm_url }}"
-    #     scm_branch: "{{ aap_config.project.scm_branch }}"
-    #     scm_update_on_launch: "{{ aap_config.project.scm_update_on_launch }}"
-    #     state: "{{ aap_config.state }}"
-    #     controller_config_file: "{{ aap_config.controller_config_file }}"
+    ###
+    # CREATE PROJECT
+    ###
+    - name: "Create / Project / {{ aap_config.project.name }}"
+      ansible.controller.project:
+        name: "{{ aap_config.project.name }}"
+        organization: "{{ aap_config.organization }}"
+        scm_type: "{{ aap_config.project.scm_type }}"
+        scm_url: "{{ aap_config.project.scm_url }}"
+        scm_branch: "{{ aap_config.project.scm_branch }}"
+        scm_update_on_launch: "{{ aap_config.project.scm_update_on_launch }}"
+        state: "{{ aap_config.state }}"
+        controller_config_file: "{{ aap_config.controller_config_file }}"
 
-    # ###
-    # # CREATE
-    # ###
-    # - name: "Create / Job Template / {{ aap_config.create.name }}"
-    #   ansible.controller.job_template:
-    #     name: "{{ aap_config.create.name }}"
-    #     job_type: "{{ aap_config.create.job_type }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     inventory: "{{ aap_config.inventory }}"
-    #     project: "{{ aap_config.project.name }}"
-    #     playbook: "{{ aap_config.create.playbook }}"
-    #     credentials: "{{ aap_config.credentials }}"
-    #     state: "{{ aap_config.state }}"
-    #     controller_config_file: "{{ aap_config.controller_config_file }}"
+    ###
+    # CREATE
+    ###
+    - name: "Create / Job Template / {{ aap_config.create.name }}"
+      ansible.controller.job_template:
+        name: "{{ aap_config.create.name }}"
+        job_type: "{{ aap_config.create.job_type }}"
+        organization: "{{ aap_config.organization }}"
+        inventory: "{{ aap_config.inventory }}"
+        project: "{{ aap_config.project.name }}"
+        playbook: "{{ aap_config.create.playbook }}"
+        credentials: "{{ aap_config.credentials }}"
+        state: "{{ aap_config.state }}"
+        controller_config_file: "{{ aap_config.controller_config_file }}"
 
-    # ###
-    # # DEPLOY
-    # ###
-    # - name: "Create / Job Templates / {{ aap_config.deploy.name }}"
-    #   ansible.controller.job_template:
-    #     name: "{{ aap_config.deploy.name }} / {{ item }}"
-    #     job_type: "{{ aap_config.create.job_type }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     inventory: "{{ aap_config.inventory }}"
-    #     project: "{{ aap_config.project.name }}"
-    #     playbook: "{{ aap_config.deploy.playbook }}"
-    #     credentials: "{{ aap_config.credentials }}"
-    #     state: "{{ aap_config.state }}"
-    #     controller_config_file: "{{ aap_config.controller_config_file }}"
-    #   loop: "{{ aap_config.deploy.destinations }}"
+    ###
+    # DEPLOY
+    ###
+    - name: "Create / Job Templates / {{ aap_config.deploy.name }}"
+      ansible.controller.job_template:
+        name: "{{ aap_config.deploy.name }} / {{ item }}"
+        job_type: "{{ aap_config.create.job_type }}"
+        organization: "{{ aap_config.organization }}"
+        inventory: "{{ aap_config.inventory }}"
+        project: "{{ aap_config.project.name }}"
+        playbook: "{{ aap_config.deploy.playbook }}"
+        credentials: "{{ aap_config.credentials }}"
+        state: "{{ aap_config.state }}"
+        controller_config_file: "{{ aap_config.controller_config_file }}"
+      loop: "{{ aap_config.deploy.destinations }}"
 
-    # ###
-    # # QUERY
-    # ###
-    # - name: "Create / Job Templates / {{ aap_config.query.name }}"
-    #   ansible.controller.job_template:
-    #     name: "{{ aap_config.query.name }} / {{ item }}"
-    #     job_type: "{{ aap_config.create.job_type }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     inventory: "{{ aap_config.inventory }}"
-    #     project: "{{ aap_config.project.name }}"
-    #     playbook: "{{ aap_config.query.playbook }}"
-    #     credentials: "{{ aap_config.credentials }}"
-    #     state: "{{ aap_config.state }}"
-    #     controller_config_file: "{{ aap_config.controller_config_file }}"
-    #   loop: "{{ aap_config.query.sources }}"
+    ###
+    # QUERY
+    ###
+    - name: "Create / Job Templates / {{ aap_config.query.name }}"
+      ansible.controller.job_template:
+        name: "{{ aap_config.query.name }} / {{ item }}"
+        job_type: "{{ aap_config.create.job_type }}"
+        organization: "{{ aap_config.organization }}"
+        inventory: "{{ aap_config.inventory }}"
+        project: "{{ aap_config.project.name }}"
+        playbook: "{{ aap_config.query.playbook }}"
+        credentials: "{{ aap_config.credentials }}"
+        state: "{{ aap_config.state }}"
+        controller_config_file: "{{ aap_config.controller_config_file }}"
+      loop: "{{ aap_config.query.sources }}"
 
-    # ###
-    # # REPORT
-    # ###
-    # - name: "Create / Job Templates / {{ aap_config.report.name }}"
-    #   ansible.controller.job_template:
-    #     name: "{{ aap_config.report.name }} / {{ item }}"
-    #     job_type: "{{ aap_config.create.job_type }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     inventory: "{{ aap_config.inventory }}"
-    #     project: "{{ aap_config.project.name }}"
-    #     playbook: "{{ aap_config.report.playbook }}"
-    #     credentials: "{{ aap_config.credentials }}"
-    #     state: "{{ aap_config.state }}"
-    #     controller_config_file: "{{ aap_config.controller_config_file }}"
-    #   loop: "{{ aap_config.report.sources }}"
+    ###
+    # REPORT
+    ###
+    - name: "Create / Job Templates / {{ aap_config.report.name }}"
+      ansible.controller.job_template:
+        name: "{{ aap_config.report.name }} / {{ item }}"
+        job_type: "{{ aap_config.create.job_type }}"
+        organization: "{{ aap_config.organization }}"
+        inventory: "{{ aap_config.inventory }}"
+        project: "{{ aap_config.project.name }}"
+        playbook: "{{ aap_config.report.playbook }}"
+        credentials: "{{ aap_config.credentials }}"
+        state: "{{ aap_config.state }}"
+        controller_config_file: "{{ aap_config.controller_config_file }}"
+      loop: "{{ aap_config.report.sources }}"
 
-    # ###
-    # # SIGN
-    # ###
-    # - name: "Create / Job Templates / {{ aap_config.sign.name }}"
-    #   ansible.controller.job_template:
-    #     name: "{{ aap_config.sign.name }} / {{ item }}"
-    #     job_type: "{{ aap_config.create.job_type }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     inventory: "{{ aap_config.inventory }}"
-    #     project: "{{ aap_config.project.name }}"
-    #     playbook: "{{ aap_config.sign.playbook }}"
-    #     credentials: "{{ aap_config.credentials }}"
-    #     state: "{{ aap_config.state }}"
-    #     controller_config_file: "{{ aap_config.controller_config_file }}"
-    #   loop: "{{ aap_config.sign.sources }}"
+    ###
+    # SIGN
+    ###
+    - name: "Create / Job Templates / {{ aap_config.sign.name }}"
+      ansible.controller.job_template:
+        name: "{{ aap_config.sign.name }} / {{ item }}"
+        job_type: "{{ aap_config.create.job_type }}"
+        organization: "{{ aap_config.organization }}"
+        inventory: "{{ aap_config.inventory }}"
+        project: "{{ aap_config.project.name }}"
+        playbook: "{{ aap_config.sign.playbook }}"
+        credentials: "{{ aap_config.credentials }}"
+        state: "{{ aap_config.state }}"
+        controller_config_file: "{{ aap_config.controller_config_file }}"
+      loop: "{{ aap_config.sign.sources }}"
 
-    # ###
-    # # VALIDATE
-    # ###
-    # - name: "Create / Job Template / {{ aap_config.validate.name }}"
-    #   ansible.controller.job_template:
-    #     name: "{{ aap_config.validate.name }}"
-    #     job_type: "{{ aap_config.create.job_type }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     inventory: "{{ aap_config.inventory }}"
-    #     project: "{{ aap_config.project.name }}"
-    #     playbook: "{{ aap_config.validate.playbook }}"
-    #     credentials: "{{ aap_config.credentials }}"
-    #     state: "{{ aap_config.state }}"
-    #     controller_config_file: "{{ aap_config.controller_config_file }}"
+    ###
+    # VALIDATE
+    ###
+    - name: "Create / Job Template / {{ aap_config.validate.name }}"
+      ansible.controller.job_template:
+        name: "{{ aap_config.validate.name }}"
+        job_type: "{{ aap_config.create.job_type }}"
+        organization: "{{ aap_config.organization }}"
+        inventory: "{{ aap_config.inventory }}"
+        project: "{{ aap_config.project.name }}"
+        playbook: "{{ aap_config.validate.playbook }}"
+        credentials: "{{ aap_config.credentials }}"
+        state: "{{ aap_config.state }}"
+        controller_config_file: "{{ aap_config.controller_config_file }}"
 
-    # ###
-    # # VERIFY
-    # ###
-    # - name: "Create / Job Template / {{ aap_config.verify.name }}"
-    #   ansible.controller.job_template:
-    #     name: "{{ aap_config.verify.name }}"
-    #     job_type: "{{ aap_config.create.job_type }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     inventory: "{{ aap_config.inventory }}"
-    #     project: "{{ aap_config.project.name }}"
-    #     playbook: "{{ aap_config.verify.playbook }}"
-    #     credentials: "{{ aap_config.credentials }}"
-    #     state: "{{ aap_config.state }}"
-    #     controller_config_file: "{{ aap_config.controller_config_file }}"
+    ###
+    # VERIFY
+    ###
+    - name: "Create / Job Template / {{ aap_config.verify.name }}"
+      ansible.controller.job_template:
+        name: "{{ aap_config.verify.name }}"
+        job_type: "{{ aap_config.create.job_type }}"
+        organization: "{{ aap_config.organization }}"
+        inventory: "{{ aap_config.inventory }}"
+        project: "{{ aap_config.project.name }}"
+        playbook: "{{ aap_config.verify.playbook }}"
+        credentials: "{{ aap_config.credentials }}"
+        state: "{{ aap_config.state }}"
+        controller_config_file: "{{ aap_config.controller_config_file }}"
 
-    # - name: "Create / Workflow Job Template / {{ aap_config.workflow_job_template.name }}"
-    #   ansible.controller.workflow_job_template:
-    #     name: "{{ aap_config.workflow_job_template.name }}"
-    #     description: "{{ aap_config.workflow_job_template.description }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     inventory: "{{ aap_config.inventory }}"
-    #     state: "{{ aap_config.state }}"
-    #     allow_simultaneous: false
-    #     # destroy_current_nodes: true
+    - name: "Create / Workflow Job Template / {{ aap_config.workflow_job_template.name }}"
+      ansible.controller.workflow_job_template:
+        name: "{{ aap_config.workflow_job_template.name }}"
+        description: "{{ aap_config.workflow_job_template.description }}"
+        organization: "{{ aap_config.organization }}"
+        inventory: "{{ aap_config.inventory }}"
+        state: "{{ aap_config.state }}"
+        allow_simultaneous: false
+        # destroy_current_nodes: true
 
-    # - name: Create / Workflow Job Template Node / SSL / Verify / Post / Failure
-    #   ansible.controller.workflow_job_template_node:
-    #     all_parents_must_converge: true
-    #     identifier: "ssl_verify_post_failure"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.report.name }} / servicenow"
-    #     organization: "{{ aap_config.organization }}"
-    # - name: Create / Workflow Job Template Node / SSL / Verify / Post / Success
-    #   ansible.controller.workflow_job_template_node:
-    #     all_parents_must_converge: true
-    #     identifier: "ssl_verify_post_success"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.report.name }} / servicenow"
-    #     organization: "{{ aap_config.organization }}"
-    # - name: Create / Workflow Job Template Node / SSL / Verify / Post
-    #   ansible.controller.workflow_job_template_node:
-    #     identifier: "ssl_verify_post"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.verify.name }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     success_nodes: ["ssl_verify_post_success"]
-    #     failure_nodes: ["ssl_verify_post_failure"]
-    # - name: Create / Workflow Job Template Node / SSL / Validate / Post
-    #   ansible.controller.workflow_job_template_node:
-    #     identifier: "ssl_validate_post"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.validate.name }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     success_nodes: ["ssl_verify_post_success"]
-    #     failure_nodes: ["ssl_verify_post_failure"]
+    - name: Create / Workflow Job Template Node / SSL / Verify / Post / Failure
+      ansible.controller.workflow_job_template_node:
+        all_parents_must_converge: true
+        identifier: "ssl_verify_post_failure"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.report.name }} / servicenow"
+        organization: "{{ aap_config.organization }}"
+    - name: Create / Workflow Job Template Node / SSL / Verify / Post / Success
+      ansible.controller.workflow_job_template_node:
+        all_parents_must_converge: true
+        identifier: "ssl_verify_post_success"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.report.name }} / servicenow"
+        organization: "{{ aap_config.organization }}"
+    - name: Create / Workflow Job Template Node / SSL / Verify / Post
+      ansible.controller.workflow_job_template_node:
+        identifier: "ssl_verify_post"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.verify.name }}"
+        organization: "{{ aap_config.organization }}"
+        success_nodes: ["ssl_verify_post_success"]
+        failure_nodes: ["ssl_verify_post_failure"]
+    - name: Create / Workflow Job Template Node / SSL / Validate / Post
+      ansible.controller.workflow_job_template_node:
+        identifier: "ssl_validate_post"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.validate.name }}"
+        organization: "{{ aap_config.organization }}"
+        success_nodes: ["ssl_verify_post_success"]
+        failure_nodes: ["ssl_verify_post_failure"]
 
-    # - name: Create / Workflow Job Template Node / SSL / Deploy / Failure
-    #   ansible.controller.workflow_job_template_node:
-    #     identifier: "ssl_deploy_failure"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.report.name }} / servicenow"
-    #     organization: "{{ aap_config.organization }}"
-    # - name: Create / Workflow Job Template Node / SSL / Deploy / Success
-    #   ansible.controller.workflow_job_template_node:
-    #     identifier: "ssl_deploy_success"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.report.name }} / servicenow"
-    #     organization: "{{ aap_config.organization }}"
-    #     success_nodes: ["ssl_verify_post", "ssl_validate_post"]
-    # - name: Create / Workflow Job Template Nodes / SSL / Deploy
-    #   ansible.controller.workflow_job_template_node:
-    #     identifier: "ssl_deploy_{{ item }}"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.deploy.name }} / {{ item }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     success_nodes: ["ssl_deploy_success"]
-    #     failure_nodes: ["ssl_deploy_failure"]
-    #   loop: "{{ aap_config.deploy.destinations }}"
-    # - name: Create / Workflow Job Template Node / SSL / Deploy / Approval / Failure
-    #   ansible.controller.workflow_job_template_node:
-    #     identifier: "ssl_deploy_approval_failure"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.report.name }} / servicenow"
-    #     organization: "{{ aap_config.organization }}"
-    # - name: Create / Workflow Job Template Node / SSL / Deploy / Approval / Success
-    #   ansible.controller.workflow_job_template_node:
-    #     identifier: "ssl_deploy_approval_success"
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     unified_job_template: "{{ aap_config.report.name }} / servicenow"
-    #     organization: "{{ aap_config.organization }}"
-    #     success_nodes: "{{ ['ssl_deploy'] | product(aap_config.deploy.destinations) | map('join', '_') | list }}"
-    # - name: Create / Workflow Job Template Node / SSL / Deploy / Approval
-    #   ansible.controller.workflow_job_template_node:
-    #     identifier: ssl_deploy_approval
-    #     workflow: "{{ aap_config.workflow_job_template.name }}"
-    #     organization: "{{ aap_config.organization }}"
-    #     approval_node:
-    #       description: "Proceed with SSL certificate deployments?"
-    #       name: ssl_deploy_approval
-    #       timeout: 300
+    - name: Create / Workflow Job Template Node / SSL / Deploy / Failure
+      ansible.controller.workflow_job_template_node:
+        identifier: "ssl_deploy_failure"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.report.name }} / servicenow"
+        organization: "{{ aap_config.organization }}"
+    - name: Create / Workflow Job Template Node / SSL / Deploy / Success
+      ansible.controller.workflow_job_template_node:
+        identifier: "ssl_deploy_success"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.report.name }} / servicenow"
+        organization: "{{ aap_config.organization }}"
+        success_nodes: ["ssl_verify_post", "ssl_validate_post"]
+    - name: Create / Workflow Job Template Nodes / SSL / Deploy
+      ansible.controller.workflow_job_template_node:
+        identifier: "ssl_deploy_{{ item }}"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.deploy.name }} / {{ item }}"
+        organization: "{{ aap_config.organization }}"
+        success_nodes: ["ssl_deploy_success"]
+        failure_nodes: ["ssl_deploy_failure"]
+      loop: "{{ aap_config.deploy.destinations }}"
+    - name: Create / Workflow Job Template Node / SSL / Deploy / Approval / Failure
+      ansible.controller.workflow_job_template_node:
+        identifier: "ssl_deploy_approval_failure"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.report.name }} / servicenow"
+        organization: "{{ aap_config.organization }}"
+    - name: Create / Workflow Job Template Node / SSL / Deploy / Approval / Success
+      ansible.controller.workflow_job_template_node:
+        identifier: "ssl_deploy_approval_success"
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        unified_job_template: "{{ aap_config.report.name }} / servicenow"
+        organization: "{{ aap_config.organization }}"
+        success_nodes: "{{ ['ssl_deploy'] | product(aap_config.deploy.destinations) | map('join', '_') | list }}"
+    - name: Create / Workflow Job Template Node / SSL / Deploy / Approval
+      ansible.controller.workflow_job_template_node:
+        identifier: ssl_deploy_approval
+        workflow: "{{ aap_config.workflow_job_template.name }}"
+        organization: "{{ aap_config.organization }}"
+        approval_node:
+          description: "Proceed with SSL certificate deployments?"
+          name: ssl_deploy_approval
+          timeout: 300
     - name: Link / Workflow Job Template Node / SSL / Deploy / Approval
       ansible.controller.workflow_job_template_node:
         identifier: ssl_deploy_approval
