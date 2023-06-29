@@ -1,0 +1,5 @@
+---
+
+- name: Not implemented yet check
+  ansible.builtin.debug:
+    msg: 'WARNING: The following step is skipped and will not be executed or not changed'

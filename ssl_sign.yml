@@ -3,5 +3,5 @@
 - name: SSL / Sign
   hosts: localhost
   tasks:
-    debug:
-      msg: "This should sign a certificate signing request and deliver signed certificate"
+    - debug:
+        msg: "This should sign a certificate signing request and deliver signed certificate"
