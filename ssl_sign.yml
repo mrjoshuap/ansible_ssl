@@ -3,7 +3,13 @@
 - name: SSL / Sign
   hosts: localhost
   tasks:
-  
+
     - name: Implementation Check
       ansible.builtin.debug:
         msg: "This should sign a certificate signing request and deliver signed certificate"
+
+    - name: Check for gremlins.
+      ansible.builtin.fail:
+        msg: A gremlin is loose!  This task selected to fail.
+      when:
+        - 10 | random() | int() == 6

@@ -3,7 +3,13 @@
 - name: SSL / Report
   hosts: localhost
   tasks:
-  
+
     - name: Implementation Check
       ansible.builtin.debug:
         msg: "This should report on all identified certificates"
+
+    - name: Check for gremlins.
+      ansible.builtin.fail:
+        msg: A gremlin is loose!  This task selected to fail.
+      when:
+        - 10 | random() | int() == 6
