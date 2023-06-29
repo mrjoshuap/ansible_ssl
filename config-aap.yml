@@ -144,14 +144,12 @@
 
     - name: Create / Workflow Job Template Node / SSL / Verify / Post / Failure
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_verify_post_failure"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
         organization: "{{ aap_config.organization }}"
     - name: Create / Workflow Job Template Node / SSL / Verify / Post / Success
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_verify_post_success"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
@@ -227,14 +225,12 @@
 
     - name: Create / Workflow Job Template Node / SSL / Sign / Failure
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_sign_failure"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
         organization: "{{ aap_config.organization }}"
     - name: Create / Workflow Job Template Node / SSL / Sign / Success
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_sign_success"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
@@ -242,7 +238,6 @@
         success_nodes: ["ssl_deploy_approval"]
     - name: Create / Workflow Job Template Nodes / SSL / Sign
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_sign_{{ item }}"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.sign.name }} / {{ item }}"
@@ -253,14 +248,12 @@
 
     - name: Create / Workflow Job Template Node / SSL / Create / Failure
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_create_failure"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
         organization: "{{ aap_config.organization }}"
     - name: Create / Workflow Job Template Node / SSL / Create / Success
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_create_success"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
@@ -269,7 +262,6 @@
 
     - name: Create / Workflow Job Template Node / SSL / Create
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_create"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.create.name }}"
@@ -279,7 +271,6 @@
 
     - name: Create / Workflow Job Template Node / SSL / Verify / Pre / Failure
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_verify_pre_failure"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
@@ -287,14 +278,12 @@
         success_nodes: ["ssl_create"]
     - name: Create / Workflow Job Template Node / SSL / Verify / Pre / Success
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_verify_pre_success"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
         organization: "{{ aap_config.organization }}"
     - name: Create / Workflow Job Template Node / SSL / Verify / Pre
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_verify_pre"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.verify.name }}"
@@ -303,7 +292,6 @@
         failure_nodes: ["ssl_verify_pre_failure"]
     - name: Create / Workflow Job Template Node / SSL / Validate / Pre
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_validate_pre"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.validate.name }}"
@@ -313,14 +301,12 @@
 
     - name: Create / Workflow Job Template Node / SSL / Query / Failure
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_query_failure"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
         organization: "{{ aap_config.organization }}"
     - name: Create / Workflow Job Template Node / SSL / Query / Success
       ansible.controller.workflow_job_template_node:
-        all_parents_must_converge: true
         identifier: "ssl_query_success"
         workflow: "{{ aap_config.workflow_job_template.name }}"
         unified_job_template: "{{ aap_config.report.name }} / servicenow"
