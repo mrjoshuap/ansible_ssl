@@ -3,5 +3,7 @@
 - name: SSL / Validate
   hosts: localhost
   tasks:
-    - ansible.builtin.debug:
+
+    - name: Implementation Check
+      ansible.builtin.debug:
         msg: "This should validate certificate fields"

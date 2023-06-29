@@ -3,5 +3,7 @@
 - name: SSL / Report
   hosts: localhost
   tasks:
-    - ansible.builtin.debug:
+  
+    - name: Implementation Check
+      ansible.builtin.debug:
         msg: "This should report on all identified certificates"

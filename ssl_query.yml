@@ -3,5 +3,7 @@
 - name: SSL / Query
   hosts: localhost
   tasks:
-    - ansible.builtin.debug:
+
+    - name: Implementation Check
+      ansible.builtin.debug:
         msg: "This should query for ssl certificates and find them"
