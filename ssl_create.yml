@@ -3,5 +3,5 @@
 - name: SSL / Create
   hosts: localhost
   tasks:
-    - debug:
+    - ansible.builtin.debug:
         msg: "This should create a new certificate signing request"

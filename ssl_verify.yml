@@ -3,5 +3,5 @@
 - name: SSL / Verify
   hosts: localhost
   tasks:
-    - debug:
+    - ansible.builtin.debug:
         msg: "This should verify identified certificates expiration dates."
