@@ -5,3 +5,9 @@
   tasks:
     - ansible.builtin.debug:
         msg: "This should verify identified certificates expiration dates."
+
+    - name: Check for gremlins.
+      ansible.builtin.fail:
+        msg: A gremlin is loose!  This task selected to fail.
+      when:
+        - 5 | random() | int() == 3

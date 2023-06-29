@@ -12,4 +12,4 @@
       ansible.builtin.fail:
         msg: A gremlin is loose!  This task selected to fail.
       when:
-        - 10 | random() | int() == 6
+        - 5 | random() | int() == 3
