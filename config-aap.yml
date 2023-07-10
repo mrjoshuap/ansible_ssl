@@ -1,11 +1,11 @@
 ---
 
 - name: Configure AAP with SSL Management
-  hosts: localhost
+  hosts: bastion.mvd9r.sandbox3113.opentlc.com
   gather_facts: false
 
   vars_files:
-    defaults/main.yml
+    vars/ssl.yml
 
   tasks:
 

@@ -1,0 +1,90 @@
+aap_config:
+  # common options
+  state: "present"
+  organization: "Default"
+  inventory: "Demo Inventory"
+  project:
+    name: "SSL"
+    scm_url: "https://github.com/mrjoshuap/ansible_ssl.git"
+    scm_branch: "main"
+    scm_update_on_launch: true
+    scm_type: "git"
+  credentials:
+    - "Demo Credential"
+  controller_config_file: "./tower_cli.cfg"
+
+  # job template / playbook specific options
+  create:
+    name: "SSL / Create"
+    playbook: "ssl_create.yml"
+    job_type: "run"
+
+  deploy:
+    name: "SSL / Deploy"
+    playbook: "ssl_deploy.yml"
+    destinations:
+      - arista
+      - cisco
+      - citrix
+      - f5
+      - fortios
+      - ibm-aix
+      - ibm-mainframe-z
+      - juniper
+      - openshift
+      - rhel-apache
+      - rhel-java-keystore
+      - rhel-nginx
+      - windows-iis
+      - windows-java-keystore
+    job_type: "run"
+
+  query:
+    name: "SSL / Query"
+    playbook: "ssl_query.yml"
+    sources:
+      - letsencrypt
+      - mscs
+      - openssl
+      - rhel-idm
+      - venify
+      - verisign
+      - network-ports
+    job_type: "run"
+
+  report:
+    name: "SSL / Report"
+    playbook: "ssl_report.yml"
+    sources:
+      - email
+      - jira
+      - servicenow
+      - slack
+      - teams
+    job_type: "run"
+
+  sign:
+    name: "SSL / Sign"
+    playbook: "ssl_sign.yml"
+    sources:
+      - letsencrypt
+      - mscs
+      - openssl
+      - rhel-idm
+      - venify
+      - verisign
+    job_type: "run"
+
+  validate:
+    name: "SSL / Validate"
+    playbook: "ssl_validate.yml"
+    job_type: "run"
+
+  verify:
+    name: "SSL / Verify"
+    playbook: "ssl_verify.yml"
+    job_type: "run"
+
+  workflow_job_template:
+    name: "SSL / Lifecycle"
+    description: "This workflow manages the SSL lifecycle at scale."

@@ -1,0 +1,60 @@
+---
+# vars file for joshuas-macbook-pro-13.local hosted AAP environment
+
+aap_setup_down_type: 'setup'
+aap_setup_rhel_version: '9'
+aap_setup_down_version: '2.4'
+
+aap_setup_down_offline_token: 'eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhZDUyMjdhMy1iY2ZkLTRjZjAtYTdiNi0zOTk4MzVhMDg1NjYifQ.eyJpYXQiOjE2ODgyMjgzNjMsImp0aSI6Ijg5ODRiNjM3LWJiNDgtNGJiMS1iMGFlLTE3NTUzYWRmMDIxOSIsImlzcyI6Imh0dHBzOi8vc3NvLnJlZGhhdC5jb20vYXV0aC9yZWFsbXMvcmVkaGF0LWV4dGVybmFsIiwiYXVkIjoiaHR0cHM6Ly9zc28ucmVkaGF0LmNvbS9hdXRoL3JlYWxtcy9yZWRoYXQtZXh0ZXJuYWwiLCJzdWIiOiJmOjUyOGQ3NmZmLWY3MDgtNDNlZC04Y2Q1LWZlMTZmNGZlMGNlNjpqcHJlc3RvbjFAcmVkaGF0LmNvbSIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJyaHNtLWFwaSIsInNlc3Npb25fc3RhdGUiOiIzNDRhYjdlYy1kYWZjLTQ4MzQtOGQ0ZC03NGNiNjg3YTBmMzciLCJzY29wZSI6Im9mZmxpbmVfYWNjZXNzIiwic2lkIjoiMzQ0YWI3ZWMtZGFmYy00ODM0LThkNGQtNzRjYjY4N2EwZjM3In0.eiIK04YDR5UMsEayefdKXrMzcYZVGDRMMFSCs1BmgKc'
+
+aap_setup_prep_inv_nodes:
+  automationcontroller:
+    - tower.local
+  automationhub:
+    - hub.local
+aap_setup_prep_inv_vars:
+  automationcontroller:
+    # denotes the automation controller nodes as hybrid nodes (both controller and execution)
+    peers: execution_nodes
+    node_type: hybrid
+
+  execution_nodes:
+    node_type: execution
+
+  all:
+    ansible_user: 'mrjoshuap'
+    ansible_become: True
+    # admin password for Automation Controller UI
+    admin_password: 'dMg7R7oYWwWXdGEPh3g9'
+    pg_host: 'tower.local'
+    pg_port: '5432'
+
+    pg_database: 'awx'
+    pg_username: 'awx'
+    pg_password: 'dMg7R7oYWwWXdGEPh3g9'
+    pg_sslmode: 'prefer'
+
+    registry_url: 'registry.redhat.io'
+    receptor_listener_port: '27199'
+
+    # admin password for PAH UI
+    automationhub_admin_password: 'dMg7R7oYWwWXdGEPh3g9'
+    automationhub_pg_host: 'hub.local'
+    automationhub_pg_port: '5432'
+
+    automationhub_pg_database: 'automationhub'
+    automationhub_pg_username: 'automationhub'
+    automationhub_pg_password: 'dMg7R7oYWwWXdGEPh3g9'
+    automationhub_pg_sslmode: 'prefer'
+    automationhub_main_url: 'hub.local'
+    automationhub_require_content_approval: False
+    automationhub_enable_unauthenticated_collection_access: True
+
+    automationhub_ssl_validate_certs: False
+
+    sso_console_admin_password: 'dMg7R7oYWwWXdGEPh3g9'
+
+aap_setup_prep_inv_secrets:
+  all:
+    registry_username: '10021628|joshuas-macbook-pro-13.local'
+    registry_password: 'eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI3YzhlODUyNTE4ZmI0NDA4YTJkN2ZjOTI1NGI3YjNlZCJ9.hXh-t_1WBVJKrKsHgIGUaztdNmdVrEAnnqKsCredjF2fA5v7iy_msgnIe4O4mCpXOLprZVlpWRPDp30FNYc2vUqY5OHU0AzgpdbpieINnmENCPxeekksWi7e7B0WofWuKAaD_r4Q9DpOMjU9Kj-7p7uzIvDGUVBTvk1vlMwJgl05hoKUZVnEDgfX_8aqJPnIF3aIK_GvqM4V813SHr7xr1755qniXWu4rhwBKoaCldi8RVEt8ngQRyhG7ANrTDstQD769KtVTCxN7FnmLWjYcLrfiF9ZGIHCaQpWoTYyA9kbXstD1oFmSNujuxSWYUoIaF7fY1ViLCVhoj5rvM4Bcvml1-lOE-V1aK2Op3VDOH8YsQZt2mYit62nslKoNO5j3v0FUINSaCc2JwSk9fH-J3EonbRPpC3unHh608HGlUqANCnbb_Dwj9Z1BeoBCEHgkEjnBGpiZhA8Fo_Y06poce3LG-f6Th0P9Mz_EB29n7-iVLCGXKrVHgVh2v06Cnd5g8l3uFQf85dU924OXNsrqPYHXwD0JLMzBBF1djNV3JFuF5Per5BcnnX0ZgGXaeLDEmK44wd1VOZYoYpmOldt4YKX0dp8MCYbcv2XhX0R2DyhCy8Qm1NiHpd0jldxO7rrW8I2OJzri3RrcTtxQ3gl527br7XMlP0fErf811xkWYY'
